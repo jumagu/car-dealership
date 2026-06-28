@@ -2,7 +2,7 @@ import { Injectable, NotFoundException, Param } from '@nestjs/common';
 
 import { v4 as uuidv4 } from 'uuid';
 
-import { Car } from './interface/car.interface';
+import { Car } from './interfaces/car.interface';
 import { CreateCarDto, UpdateCarDto } from './dto';
 
 // ? https://docs.nestjs.com/providers
