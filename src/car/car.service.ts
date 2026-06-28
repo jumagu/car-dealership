@@ -8,23 +8,7 @@ import { CreateCarDto, UpdateCarDto } from './dto';
 // ? https://docs.nestjs.com/providers
 @Injectable() // Marks a class as a provider
 export class CarService {
-  private cars: Car[] = [
-    {
-      id: uuidv4(),
-      brand: 'Toyota',
-      model: 'Corolla',
-    },
-    {
-      id: uuidv4(),
-      brand: 'Honda',
-      model: 'Civic',
-    },
-    {
-      id: uuidv4(),
-      brand: 'Jeep',
-      model: 'Cherokee',
-    },
-  ];
+  private cars: Car[] = [];
 
   findAll() {
     return this.cars;
@@ -80,5 +64,9 @@ export class CarService {
     }
 
     this.cars = this.cars.filter((car) => car.id !== id);
+  }
+
+  fillCarsWithSeedData(cars: Car[]) {
+    this.cars = cars;
   }
 }

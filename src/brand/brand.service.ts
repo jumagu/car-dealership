@@ -7,23 +7,7 @@ import { CreateBrandDto, UpdateBrandDto } from './dto';
 
 @Injectable()
 export class BrandService {
-  private brands: Brand[] = [
-    {
-      id: uuidv4(),
-      name: 'Toyota',
-      createdAt: new Date().getTime(),
-    },
-    {
-      id: uuidv4(),
-      name: 'Honda',
-      createdAt: new Date().getTime(),
-    },
-    {
-      id: uuidv4(),
-      name: 'Jeep',
-      createdAt: new Date().getTime(),
-    },
-  ];
+  private brands: Brand[] = [];
 
   create(createBrandDto: CreateBrandDto) {
     const newBrand: Brand = {
@@ -84,5 +68,9 @@ export class BrandService {
     }
 
     this.brands = this.brands.filter((brand) => brand.id !== id);
+  }
+
+  fillBrandsWithSeedData(brands: Brand[]) {
+    this.brands = brands;
   }
 }
